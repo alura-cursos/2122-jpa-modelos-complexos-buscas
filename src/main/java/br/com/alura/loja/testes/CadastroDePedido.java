@@ -37,7 +37,7 @@ public class CadastroDePedido {
 		pedido.adicionarItem(new ItemPedido(40, pedido, produto2));
 
 		Pedido pedido2 = new Pedido(cliente);
-		pedido.adicionarItem(new ItemPedido(2, pedido, produto3));
+		pedido2.adicionarItem(new ItemPedido(2, pedido2, produto3));
 		
 		PedidoDao pedidoDao = new PedidoDao(em);
 		pedidoDao.cadastrar(pedido);
