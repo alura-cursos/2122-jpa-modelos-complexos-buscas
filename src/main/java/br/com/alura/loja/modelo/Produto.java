@@ -8,10 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "produtos")
+@NamedQuery(name = "Produto.produtosPorCategoria", query = "SELECT p FROM Produto p WHERE p.categoria.nome = :nome")
 public class Produto {
 
 	@Id
@@ -21,13 +23,13 @@ public class Produto {
 	private String descricao;
 	private BigDecimal preco;
 	private LocalDate dataCadastro = LocalDate.now();
-	
+
 	@ManyToOne
 	private Categoria categoria;
-	
+
 	public Produto() {
 	}
-	
+
 	public Produto(String nome, String descricao, BigDecimal preco, Categoria categoria) {
 		this.nome = nome;
 		this.descricao = descricao;
